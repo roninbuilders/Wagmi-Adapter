@@ -1,0 +1,33 @@
+{
+  "name": "@w3vm/ronin-connector",
+  "version": "0.0.0-alpha.0",
+  "description": "W3Vm connector for Ronin Wallet",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup && npx tsc",
+    "watch": "tsup -w"
+  },
+  "devDependencies": {
+    "tsup": "8.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roninbuilders/connectors.git"
+  },
+  "keywords": [
+    "w3vm",
+    "ronin",
+    "wallet",
+    "network",
+    "blockchain",
+    "connector"
+  ],
+  "author": "glitch-txs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roninbuilders/connectors/issues"
+  },
+  "homepage": "https://github.com/roninbuilders/connectors#readme"
+}

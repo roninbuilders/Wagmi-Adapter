@@ -2,9 +2,8 @@
   "name": "connectors",
   "version": "0.0.0",
   "description": "Ronin Connectors for Web applications",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "pnpm dlx @biomejs/biome format packages --write"
   },
   "repository": {
     "type": "git",
@@ -23,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/roninbuilders/connectors/issues"
   },
-  "homepage": "https://github.com/roninbuilders/connectors#readme"
+  "homepage": "https://github.com/roninbuilders/connectors#readme",
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3"
+  }
 }
