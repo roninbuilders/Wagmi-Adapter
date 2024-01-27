@@ -1,0 +1,27 @@
+{
+  "name": "connectors",
+  "version": "0.0.0",
+  "description": "Ronin Connectors for Web applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roninbuilders/connectors.git"
+  },
+  "keywords": [
+    "ronin",
+    "wallet",
+    "blockchain",
+    "network",
+    "wagmi",
+    "w3vm"
+  ],
+  "author": "glitch-txs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roninbuilders/connectors/issues"
+  },
+  "homepage": "https://github.com/roninbuilders/connectors#readme"
+}
