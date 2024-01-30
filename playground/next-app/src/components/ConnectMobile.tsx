@@ -13,7 +13,7 @@ function ConnectMobile() {
         { /* 1. call prepareMobile function to create a connection with the WalletConnect network, this will generate an URI */ }
         <button onClick={prepareMobile} >{ isMobileReady ? "Try again" : "prepare Mobile URI"}</button>
 
-        { /* 2. Once the URI is generated with open the Ronin wallet with its deeplink + the uri attached - all this is handled internally by the openMobile function  */ }
+        { /* 2. Once the URI is generated we open the Ronin wallet with its deeplink + the uri attached - all this is handled internally by the openMobile function  */ }
         {isMobileReady && <button onClick={openMobile} >Connect Mobile Wallet</button>}
       </>
     )
