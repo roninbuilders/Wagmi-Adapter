@@ -42,7 +42,7 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 	}, [uri])
 
 	const connectBrowser = useCallback(() => {
-		if (!mobileConnector) throw Error('WalletConnect Connector not found in prepareMobile function')
+		if (!mobileConnector) throw Error('mobileConnector not found in connectBrowser function')
 		connect({ connector: browserConnector })
 	}, [browserConnector])
 
