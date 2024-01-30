@@ -27,5 +27,25 @@
   "bugs": {
     "url": "https://github.com/roninbuilders/connectors/issues"
   },
-  "homepage": "https://github.com/roninbuilders/connectors#readme"
+  "homepage": "https://github.com/roninbuilders/connectors#readme",
+  "dependencies": {
+    "@walletconnect/ethereum-provider": "2.11.0",
+    "wagmi": "2.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.48",
+    "react": "18.2.0",
+    "typescript": "5.3.3",
+    "viem": "2.6.0"
+  },
+  "peerDependencies": {
+    "react": ">=17",
+    "typescript": ">=5",
+    "viem": ">=2 <3"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  }
 }
