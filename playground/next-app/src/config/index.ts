@@ -1,7 +1,7 @@
 import { createRoninConfig } from "@roninbuilders/wagmi-adapter";
 import { http } from "viem";
 import { ronin, saigon } from "viem/chains";
-import { WalletConnectParameters } from "wagmi/connectors";
+import type { WalletConnectParameters } from "wagmi/connectors";
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID
 if(!projectId) throw Error("Project ID is undefined - get a project ID from WalletConnect Cloud")
