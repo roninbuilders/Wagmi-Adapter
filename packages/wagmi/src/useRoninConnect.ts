@@ -7,7 +7,7 @@ import type { EthereumProvider } from '@walletconnect/ethereum-provider'
 type HookReturnTypes = {
 	isMobileReady: boolean
 	prepareMobile: () => void
-	connectMobile: () => void
+	openMobile: () => void
 	connectBrowser: () => void
 	connectors: Connector[]
 	isBrowser: boolean
@@ -35,7 +35,9 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 		connect({ connector: mobileConnector })
 	}, [mobileConnector])
 
-	const connectMobile = useCallback(() => {
+	const openMobile = useCallback(() => {
+    if(!uri) throw Error('URI is undefined')
+
 		window.open(`${RONIN.deeplink}wc?uri=${uri}`, '_self')
 	}, [uri])
 
@@ -47,10 +49,10 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 	// Event listener for the WalletConnect URI
 	useEffect(() => {
 		if (mobileConnector) {
-			;async () => {
+      (async () => {
 				const provider = (await mobileConnector.getProvider()) as InstanceType<typeof EthereumProvider>
 				provider.on('display_uri', setUri)
-			}
+			})()
 		}
 	}, [mobileConnector])
 
@@ -58,7 +60,7 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 		...states,
 		isMobileReady: Boolean(uri), // if URI get's populated deeplink can be opened.
 		prepareMobile,
-		connectMobile,
+		openMobile,
 		connectBrowser,
 		connectors: [browserConnector, mobileConnector],
 		isBrowser: Boolean(browserConnector),

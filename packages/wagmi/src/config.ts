@@ -1,13 +1,14 @@
-import { walletConnect } from 'wagmi/connectors'
+import { type WalletConnectParameters, walletConnect } from 'wagmi/connectors'
 import { Config, CreateConfigParameters, createConfig } from 'wagmi'
 
 export function createRoninConfig({
 	projectId,
+  metadata,
 	...wagmiConfig
-}: CreateConfigParameters & { projectId: string }): Config {
+}: CreateConfigParameters & { projectId: WalletConnectParameters['projectId'], metadata: WalletConnectParameters['metadata'] }): Config {
 	return createConfig({
 		...wagmiConfig,
-		connectors: [walletConnect({ projectId, showQrModal: false })],
+		connectors: [walletConnect({ projectId, showQrModal: false, metadata })],
 		multiInjectedProviderDiscovery: true,
 	})
 }
