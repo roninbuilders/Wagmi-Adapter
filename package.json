@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Ronin Connectors for Web applications",
   "scripts": {
+    "build:playground": "pnpm --filter=./playground/next-app run build",
     "format": "pnpm dlx @biomejs/biome format packages --write"
   },
   "repository": {
