@@ -36,7 +36,7 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 	}, [mobileConnector])
 
 	const openMobile = useCallback(() => {
-    if(!uri) throw Error('URI is undefined')
+		if (!uri) throw Error('URI is undefined')
 
 		window.open(`${RONIN.deeplink}wc?uri=${uri}`, '_self')
 	}, [uri])
@@ -49,7 +49,7 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 	// Event listener for the WalletConnect URI
 	useEffect(() => {
 		if (mobileConnector) {
-      (async () => {
+			;(async () => {
 				const provider = (await mobileConnector.getProvider()) as InstanceType<typeof EthereumProvider>
 				provider.on('display_uri', setUri)
 			})()
