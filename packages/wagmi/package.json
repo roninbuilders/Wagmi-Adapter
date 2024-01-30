@@ -1,6 +1,6 @@
 {
   "name": "@roninbuilders/wagmi-adapter",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.2",
   "description": "Wagmi connector for Ronin Wallet",
   "type": "module",
   "main": "./dist/esm/exports/config.js",
