@@ -40,7 +40,6 @@
   },
   "homepage": "https://github.com/roninbuilders/connectors#readme",
   "dependencies": {
-    "@walletconnect/ethereum-provider": "2.11.0",
     "wagmi": "2.5.4"
   },
   "devDependencies": {
@@ -50,6 +49,7 @@
     "viem": "2.6.0"
   },
   "peerDependencies": {
+    "@walletconnect/ethereum-provider": ">=2 <3",
     "react": ">=17",
     "typescript": ">=5",
     "viem": ">=2 <3"
