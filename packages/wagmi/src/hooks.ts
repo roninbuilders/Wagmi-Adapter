@@ -38,7 +38,7 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 	const openMobile = useCallback(() => {
 		if (!uri) throw Error('URI is undefined')
 
-		window.open(`${RONIN.deeplink}wc?uri=${uri}`, '_self')
+		window.open(`${RONIN.deeplink}wc?uri=${encodeURIComponent(uri)}`, '_self')
 	}, [uri])
 
 	const connectBrowser = useCallback(() => {

@@ -5,6 +5,7 @@
   "scripts": {
     "dev:playground": "pnpm --filter ./playground/next-app run dev",
     "start:playground": "pnpm --filter ./playground/next-app run start",
+    "watch": "pnpm --filter ./packages/wagmi run watch",
     "build": "pnpm run build:packages && pnpm run build:playground",
     "build:packages": "pnpm --filter ./packages/wagmi run build",
     "build:playground": "pnpm --filter ./playground/next-app run build",
