@@ -52,7 +52,7 @@ export const config = createRoninConfig({
 
 The Wagmi adapter wraps the `useConnect` hook from Wagmi, you will need to use it to set up the configuration to connect with the Ronin extension wallet and the mobile app wallet:
 
-> NOTE
+> [!NOTE]
 > `useRoninConnect` is exported from `@roninbuilders/wagmi-adapter/hooks`
 
 The `useRoninConnect` hook is an extension of the `useConnect` hook from Wagmi, so it will bypass most of the returns while overriding others
