@@ -5,7 +5,7 @@
 ### Installation:
 
 ```sh
-pnpm add --save-exact @roninbuilders/wagmi-adapter@0.0.0-alpha.1
+pnpm add --save-exact @roninbuilders/wagmi-adapter@0.0.0-alpha.2
 ```
 
 - Wagmi package and its peers:
