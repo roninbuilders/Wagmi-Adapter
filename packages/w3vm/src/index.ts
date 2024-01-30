@@ -1,1 +1,1 @@
-export const vara = "hello"
+export const vara = 'hello'

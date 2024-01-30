@@ -5,65 +5,64 @@ import { isMobile } from './utils.js'
 import type { EthereumProvider } from '@walletconnect/ethereum-provider'
 
 type HookReturnTypes = {
-  isMobileReady: boolean,
-  prepareMobile: ()=>void,
-  connectMobile: ()=>void,
-  connectBrowser:()=>void,
-  connectors: Connector[],
-  isBrowser: boolean,
-  isMobile: boolean,
-  uri: string
+	isMobileReady: boolean
+	prepareMobile: () => void
+	connectMobile: () => void
+	connectBrowser: () => void
+	connectors: Connector[]
+	isBrowser: boolean
+	isMobile: boolean
+	uri: string
 } & Omit<UseConnectReturnType, 'connectors' | 'connect'>
 
 export function useRoninConnect(params: UseConnectParameters): HookReturnTypes {
-  const { connect, connectors, ...states } = useConnect(params)
+	const { connect, connectors, ...states } = useConnect(params)
 
-  const [uri, setUri] = useState('')
-  
-  const [ browserConnector ] = useMemo(()=>{
-    return connectors.filter(({ id }) => id === RONIN.rdns )
-  }, [connectors])
+	const [uri, setUri] = useState('')
 
-  const [ mobileConnector ] = useMemo(()=>{
-    return connectors.filter(({ id }) => id === WALLETCONNECT.id)
-  }, [connectors])
+	const [browserConnector] = useMemo(() => {
+		return connectors.filter(({ id }) => id === RONIN.rdns)
+	}, [connectors])
 
-  const prepareMobile = useCallback(()=>{
-    if(!mobileConnector) throw Error('WalletConnect Connector not found in prepareMobile function')
+	const [mobileConnector] = useMemo(() => {
+		return connectors.filter(({ id }) => id === WALLETCONNECT.id)
+	}, [connectors])
 
-    setUri('')
-    connect({ connector: mobileConnector })
-  }, [mobileConnector])
+	const prepareMobile = useCallback(() => {
+		if (!mobileConnector) throw Error('WalletConnect Connector not found in prepareMobile function')
 
-  const connectMobile = useCallback(()=>{
-    window.open(`${RONIN.deeplink}wc?uri=${uri}`, '_self')
-    return 
-  }, [uri])
+		setUri('')
+		connect({ connector: mobileConnector })
+	}, [mobileConnector])
 
-  const connectBrowser = useCallback(()=>{
-    if(!mobileConnector) throw Error('WalletConnect Connector not found in prepareMobile function')
-    connect({ connector: browserConnector })
-  }, [browserConnector])
+	const connectMobile = useCallback(() => {
+		window.open(`${RONIN.deeplink}wc?uri=${uri}`, '_self')
+	}, [uri])
 
-  // Event listener for the WalletConnect URI
-  useEffect(()=>{
-    if(mobileConnector){
-      (async()=>{
-        const provider = (await mobileConnector.getProvider()) as InstanceType<typeof EthereumProvider>
-        provider.on('display_uri', setUri)
-      })
-    }
-  },[mobileConnector])
+	const connectBrowser = useCallback(() => {
+		if (!mobileConnector) throw Error('WalletConnect Connector not found in prepareMobile function')
+		connect({ connector: browserConnector })
+	}, [browserConnector])
 
-  return {
-    ...states,
-    isMobileReady: Boolean(uri), // if URI get's populated deeplink can be opened.
-    prepareMobile,
-    connectMobile,
-    connectBrowser,
-    connectors: [browserConnector, mobileConnector],
-    isBrowser: Boolean(browserConnector),
-    isMobile: isMobile(),
-    uri
-  }
+	// Event listener for the WalletConnect URI
+	useEffect(() => {
+		if (mobileConnector) {
+			;async () => {
+				const provider = (await mobileConnector.getProvider()) as InstanceType<typeof EthereumProvider>
+				provider.on('display_uri', setUri)
+			}
+		}
+	}, [mobileConnector])
+
+	return {
+		...states,
+		isMobileReady: Boolean(uri), // if URI get's populated deeplink can be opened.
+		prepareMobile,
+		connectMobile,
+		connectBrowser,
+		connectors: [browserConnector, mobileConnector],
+		isBrowser: Boolean(browserConnector),
+		isMobile: isMobile(),
+		uri,
+	}
 }
