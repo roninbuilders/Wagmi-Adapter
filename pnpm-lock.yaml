@@ -38,7 +38,7 @@ importers:
 
   playground/next-app:
     dependencies:
-      '@roninbulders/wagmi-adapter':
+      '@roninbuilders/wagmi-adapter':
         specifier: 'workspace: *'
         version: link:../../packages/wagmi
       '@tanstack/react-query':
