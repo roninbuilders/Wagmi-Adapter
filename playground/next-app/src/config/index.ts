@@ -1,4 +1,4 @@
-import { createRoninConfig } from "@roninbulders/wagmi-adapter";
+import { createRoninConfig } from "@roninbuilders/wagmi-adapter";
 import { http } from "viem";
 import { ronin, saigon } from "viem/chains";
 import { WalletConnectParameters } from "wagmi/connectors";

@@ -1,6 +1,6 @@
 'use client'
 
-import { useRoninConnect } from '@roninbulders/wagmi-adapter'
+import { useRoninConnect } from '@roninbuilders/wagmi-adapter'
 
 function ConnectBrowser() {
   const { connectBrowser, error, isError } = useRoninConnect()

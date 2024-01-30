@@ -1,6 +1,6 @@
 'use client'
 
-import { useRoninConnect } from "@roninbulders/wagmi-adapter"
+import { useRoninConnect } from "@roninbuilders/wagmi-adapter"
 import QRCode from "react-qr-code"
 
 function ConnectMobile() {
