@@ -1,5 +1,5 @@
 import { type WalletConnectParameters, walletConnect } from 'wagmi/connectors'
-import { Config, CreateConfigParameters, createConfig } from 'wagmi'
+import { Config, type CreateConfigParameters, createConfig } from 'wagmi'
 
 export function createRoninConfig({
 	projectId,

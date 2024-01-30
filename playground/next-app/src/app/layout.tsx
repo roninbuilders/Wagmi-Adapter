@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ContextProvider from "@/context";
+import { cookieToInitialState } from "wagmi";
+import { config } from "@/config";
+import { headers } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +18,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialState = cookieToInitialState( 
+    config, 
+    headers().get('cookie')
+  ) 
   return (
     <html lang="en">
       <body className={inter.className}>
-      <ContextProvider>
+      <ContextProvider initialState={initialState} >
         {children}
       </ContextProvider>
       </body>

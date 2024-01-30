@@ -1,6 +1,7 @@
 import { createRoninConfig } from "@roninbuilders/wagmi-adapter";
 import { http } from "viem";
 import { ronin, saigon } from "viem/chains";
+import { cookieStorage, createStorage } from "wagmi";
 import type { WalletConnectParameters } from "wagmi/connectors";
 
 const projectId = process.env.NEXT_PUBLIC_PROJECT_ID
@@ -21,4 +22,8 @@ export const config = createRoninConfig({
     [ronin.id]: http(),
     [saigon.id]: http(),
   },
+  ssr: true,
+  storage: createStorage({
+    storage: cookieStorage
+  })
 })
