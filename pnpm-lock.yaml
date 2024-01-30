@@ -39,7 +39,7 @@ importers:
   playground/next-app:
     dependencies:
       '@roninbuilders/wagmi-adapter':
-        specifier: 0.0.0-alpha.1
+        specifier: 'workspace: *'
         version: link:../../packages/wagmi
       '@tanstack/react-query':
         specifier: 5.17.19
