@@ -15,7 +15,7 @@ type HookReturnTypes = {
 	uri: string
 } & Omit<UseConnectReturnType, 'connectors' | 'connect'>
 
-export function useRoninConnect(params: UseConnectParameters): HookReturnTypes {
+export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTypes {
 	const { connect, connectors, ...states } = useConnect(params)
 
 	const [uri, setUri] = useState('')

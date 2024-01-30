@@ -1,5 +1,5 @@
 {
-  "name": "ronin-connector",
+  "name": "@roninbulders/wagmi-adapter",
   "version": "0.0.0-alpha.0",
   "description": "Wagmi connector for Ronin Wallet",
   "type": "module",
