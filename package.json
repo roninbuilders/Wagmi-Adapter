@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "Ronin Connectors for Web applications",
   "scripts": {
-    "build:playground": "pnpm --filter=./playground/next-app run build",
+    "build": "pnpm run build:packages && pnpm run build:playground",
+    "build:packages": "pnpm --filter ./packages/wagmi run build",
+    "build:playground": "pnpm --filter ./playground/next-app run build",
     "format": "pnpm dlx @biomejs/biome format packages --write"
   },
   "repository": {
