@@ -6,11 +6,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup && npx tsc",
-    "watch": "tsup -w"
-  },
-  "devDependencies": {
-    "tsup": "8.0.1"
+    "clean": "rm -rf dist",
+    "build": "pnpm run clean && npx tsc",
+    "watch": "tsc -w"
   },
   "repository": {
     "type": "git",
