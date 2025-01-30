@@ -9,6 +9,7 @@ type HookReturnTypes = {
 	prepareMobile: () => void
 	openMobile: () => void
 	connectBrowser: () => void
+	connectWaypoint: () => void
 	connectors: Connector[]
 	isBrowser: boolean
 	isMobile: boolean
@@ -26,6 +27,10 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 
 	const [mobileConnector] = useMemo(() => {
 		return connectors.filter(({ id }) => id === WALLETCONNECT.id)
+	}, [connectors])
+
+	const [waypointConnector] = useMemo(() => {
+		return connectors.filter(({ id }) => id === RONIN.waypoint.id)
 	}, [connectors])
 
 	const prepareMobile = useCallback(() => {
@@ -46,6 +51,11 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 		connect({ connector: browserConnector })
 	}, [browserConnector])
 
+	const connectWaypoint = useCallback(() => {
+		if (!waypointConnector) throw Error('waypointConnector not found in connectWaypoint function')
+		connect({ connector: waypointConnector })
+	}, [waypointConnector])
+
 	// Event listener for the WalletConnect URI
 	useEffect(() => {
 		if (mobileConnector) {
@@ -62,7 +72,8 @@ export function useRoninConnect(params: UseConnectParameters = {}): HookReturnTy
 		prepareMobile,
 		openMobile,
 		connectBrowser,
-		connectors: [browserConnector, mobileConnector],
+		connectWaypoint,
+		connectors: [browserConnector, mobileConnector, waypointConnector],
 		isBrowser: Boolean(browserConnector),
 		isMobile: isMobile(),
 		uri,

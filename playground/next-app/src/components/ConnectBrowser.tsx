@@ -3,7 +3,11 @@
 import { useRoninConnect } from '@roninbuilders/wagmi-adapter/hooks'
 
 function ConnectBrowser() {
-  const { connectBrowser, error, isError } = useRoninConnect()
+  const { connectBrowser, isBrowser, error, isError } = useRoninConnect()
+
+  if(!isBrowser){
+    return <div>Ronin Extension Wallet not detected. Please install...</div>
+  }
 
   return (
     <>

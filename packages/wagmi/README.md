@@ -1,9 +1,11 @@
-# Wagmi v2 Adapter
+# Ronin Connectors
 
-## Installation:
+## Wagmi v2 Adapter
+
+### Installation:
 
 ```sh
-pnpm add --save-exact @roninbuilders/wagmi-adapter@0.0.0-alpha.2
+pnpm add @roninbuilders/wagmi-adapter
 ```
 
 - Wagmi package and its peers:
@@ -12,7 +14,7 @@ pnpm add --save-exact @roninbuilders/wagmi-adapter@0.0.0-alpha.2
 pnpm add wagmi viem @tanstack/react-query
 ```
 
-## Configuration:
+### Configuration:
 
 To start with Wagmi we'll replace `createConfig` function with `createRoninConfig`. We can pass all the wagmi configuration options except for the `connectors`, additionally we need to add two
 WalletConnect options: `projectId` and `metadata`.
@@ -46,7 +48,7 @@ export const config = createRoninConfig({
 })
 ```
 
-## useRoninConnect
+### useRoninConnect
 
 The Wagmi adapter wraps the `useConnect` hook from Wagmi, you will need to use it to set up the configuration to connect with the Ronin extension wallet and the mobile app wallet:
 
@@ -55,7 +57,7 @@ The Wagmi adapter wraps the `useConnect` hook from Wagmi, you will need to use i
 
 The `useRoninConnect` hook is an extension of the `useConnect` hook from Wagmi, so it will bypass most of the returns while overriding others
 
-### Extension Browser wallet:
+#### Extension Browser wallet:
 
 use the `connectBrowser` to request a connection to the extension wallet, you can also use `isBrowser` to know if the user has the extension wallet installed or not
 
@@ -78,7 +80,7 @@ function ConnectBrowser() {
 export default ConnectBrowser
 ```
 
-### Mobile Wallet:
+#### Mobile Wallet:
 
 There are two ways to use the mobile wallet connector (WalletConnect v2 protocol), depending whether the user is on a Desktop or mobile environment.
 
@@ -149,3 +151,5 @@ function ConnectMobile() {
 
 export default ConnectMobile
 ```
+
+#### Ronin Waypoint:
