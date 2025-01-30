@@ -151,3 +151,33 @@ function ConnectMobile() {
 
 export default ConnectMobile
 ```
+
+#### Ronin Waypoint:
+
+1. Get a client ID from https://docs.skymavis.com/mavis/ronin-waypoint/guides/get-started#steps
+
+2. Add your client ID and chain ID to the configuration
+
+```tsx
+export const config = createRoninConfig({
+  //...
+  waypoint:{
+    clientId: "YOUR_CLIENT_ID",
+    chainId: 2021,
+  },
+})
+```
+
+3. Use the `connectWaypoint` function to connect
+
+```tsx
+import { useRoninConnect } from '@roninbuilders/wagmi-adapter/hooks'
+
+function ConnectWaypoint() {
+  const { connectWaypoint } = useRoninConnect()
+
+  return <button onClick={connectWaypoint} >Connect With Waypoint</button>
+}
+
+export default ConnectWaypoint
+```
